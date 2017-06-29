@@ -1,0 +1,27 @@
+HOME			= .
+RANDFILE		= $ENV::HOME/.rnd
+
+[ req ]
+default_bits		= 2048
+distinguished_name	= req_distinguished_name
+x509_extensions	= v3_ca
+
+[ req_distinguished_name ]
+countryName			= Country Name (2 letter code)
+countryName_default		= QQ
+stateOrProvinceName		= State or Province Name (full name)
+stateOrProvinceName_default	= Pure Code
+localityName			= Locality Name (eg, city)
+localityName_default		= Golang
+0.organizationName		= Organization Name (eg, company)
+0.organizationName_default	= Acme Testing Co
+organizationalUnitName		= Organizational Unit Name (eg, section)
+organizationalUnitName_default	= Signers
+commonName			= Common Name (e.g. server FQDN or YOUR name)
+commonName_default		= ACME Signer 1
+[ v3_ca ]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid:always,issuer
+basicConstraints = CA:true
+
+keyUsage = cRLSign, keyCertSign

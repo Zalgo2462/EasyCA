@@ -1,0 +1,11 @@
+EasyCA is a set of simple shell scripts and OpenSSL .cnf files to get you started with your own self-signed certificate authority.
+
+Each shell script expects you to run the script in its directory.
+
+server/buildCert.sh [openssl.cnf] [dest_directory] takes a cnf file, generates an rsa key and certificate signing request, and places them in the dest directory.
+
+ca/buildCert.sh generates a new certificate authority with an aes encrypted elliptic curve private key.
+
+ca/signServerCSR.sh [server_directory] looks in server/[server_directory] for a csr and signs it, creating a certificate.
+
+Note: More configuration is needed before this is used in production. Notably, CRL's still need to be implemented.

@@ -1,0 +1,34 @@
+HOME			= .
+RANDFILE		= $ENV::HOME/.rnd
+
+[ ca ]
+default_ca	= CA_default		# The default ca section
+
+[ CA_default ]
+dir		= ./CA
+database	= $dir/index
+new_certs_dir	= $dir/newcerts
+
+certificate	= $dir/cacert.pem
+serial		= $dir/serial
+private_key	= $dir/private/cakey.pem
+RANDFILE	= $dir/private/.rand
+copy_extensions = copy
+name_opt 	= ca_default
+cert_opt 	= ca_default
+
+default_days	= 365			# how long to certify for
+default_crl_days= 30			# how long before next CRL
+default_md	= default		# use public key default MD
+preserve = no			# keep passed DN ordering
+
+policy = policy_anything
+
+[ policy_anything ]
+countryName		= optional
+stateOrProvinceName	= optional
+localityName		= optional
+organizationName	= optional
+organizationalUnitName	= optional
+commonName		= supplied
+emailAddress		= optional
